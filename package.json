@@ -1,0 +1,45 @@
+{
+  "name": "demo-gulp-automate-building-tool",
+  "version": "0.0.1",
+  "description": "GulpJS를 활용하여 업무 자동화 프로그래밍.",
+  "keywords": [
+    "gulp",
+    "업무",
+    "자동화"
+  ],
+  "scripts": {
+    "server": "http-server -a localhost -p 9090 -o",
+    "clear": "rm -rf .tmp test/* src/css/* src/js/*.bundle.*"
+  },
+  "author": "yamoo9 <yamoo9@naver.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.12.5",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-if": "^2.0.0",
+    "gulp-inject": "^4.0.0",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-modernizr": "https://github.com/doctyper/gulp-modernizr/tarball/develop",
+    "gulp-print": "^2.0.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-sass-lint": "^1.1.1",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-sync": "^0.1.4",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "install": "^0.7.3",
+    "lodash.assign": "^4.0.8",
+    "npm": "^3.8.9",
+    "require-dir": "^0.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0",
+    "wiredep": "^4.0.0",
+    "yargs": "^4.6.0"
+  },
+  "dependencies": {}
+}

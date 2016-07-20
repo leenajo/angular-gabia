@@ -1,0 +1,30 @@
+{
+  // ------------------------------
+  // JSCS — JavaScript Code Style
+  // http://jscs.info
+  // ------------------------------
+  // 선택 가능한 코딩 스타일
+  // http://jscs.info/overview
+  // ------------------------------
+  // airbnb
+  // crockford
+  // google
+  // jquery
+  // mdcs
+  // node-style-guide
+  // wikimedia
+  // wordpress
+  // yandex
+  // idiomatic
+  "preset": "google",
+
+  // ------------------------------
+  // 중괄호({})가 요구되는 키워드
+  // ------------------------------
+  "requireCurlyBraces": [
+    "if",
+    "else",
+    "for",
+    "while"
+  ]
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko-KR" dir="ltr" class="no-js" data-ng-app="DemoApp">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>AngularJS Application - Module &amp; Controller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/x-icon" href="images/favicon.ico"> -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+  <!-- endbower -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+</head>
+<body data-ng-cloak>
+
+<!-- 헤더 영역 -->
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">AngularJS 모듈(Module)&amp; 컨트롤러(Controller)</a>
+    </div>
+  </div>
+</nav>
+<!--// 헤더 영역 -->
+
+<!-- 등록 폼 영역 -->
+<div
+  class="main-content container"
+  data-ng-controller="RegisterController">
+  <form name="registerForm" data-ng-submit="onSubmit(registerForm)" novalidate>
+    <div class="form-group">
+      <label for="user-id" class="control-label">아이디</label>
+      <input
+        type="text"
+        name="user-id"
+        id="user-id"
+        class="form-control"
+        data-ng-model="formModel.user_id">
+    </div>
+    <div
+      class="form-group"
+      data-ng-class="{
+        'has-error': !registerForm['user-email'].$pristine &amp;&amp; registerForm['user-email'].$invalid,
+        'has-success': registerForm['user-email'].$valid
+      }">
+      <label for="user-email" class="control-label">이메일 <span aria-label="필수 입력">*</span></label>
+      <input
+        type="email"
+        name="user-email"
+        id="user-email"
+        class="form-control"
+        data-ng-model="formModel.user_email"
+        placeholder="name@email.com"
+        required>
+      <span class="help-block" data-ng-show="registerForm['user-email'].$error.required">이메일은 필수 입력사항입니다.</span>
+      <span class="help-block" data-ng-show="registerForm['user-email'].$error.email">작성하는 이메일은 @ 기호를 반드시 사용해야 합니다.</span>
+      <span class="help-block" data-ng-show="registerForm['user-email'].$valid">작성하는 이메일은 올바른 유형으로 작성하셨습니다.</span>
+    </div>
+    <!-- <pre>이메일의 오류 상태 {{registerForm['user-email'].$error | json}}</pre>
+    <pre>이메일의 오류 상태: 요구(required): {{registerForm['user-email'].$error.required}}</pre>
+    <pre>이메일의 오류 상태: 이메일 유형 오류(email): {{registerForm['user-email'].$error.email}}</pre>
+    <pre>이메일 인풋을 사용자가 입력한 적이 없는가? {{registerForm['user-email'].$pristine}}</pre>
+    <pre>이메일이 현재 유효한 상태인가? {{registerForm['user-email'].$valid}}</pre>
+    <pre>이메일이 현재 유효하지 않은 상태인가? {{registerForm['user-email'].$invalid}}</pre> -->
+    <div class="form-group">
+      <label for="user-password" class="control-label">패스워드</label>
+      <input
+        type="password"
+        name="user-password"
+        id="user-password"
+        class="form-control"
+        data-ng-model="formModel.user_password">
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary">전송</button>
+    </div>
+  </form>
+  <!-- <pre>{{registerForm | json}}</pre> -->
+</div>
+<!--// 등록 폼 영역 -->
+
+<hr>
+
+<!-- 리스트 영역 -->
+<div class="container-fluid onepiece-container" data-ng-cloak data-ng-controller="OnepieceController">
+  <div class="form-group">
+    <label for="member-search" class="control-label">원피스 멤버 검색</label>
+    <input id="member-search" type="search" data-ng-model="member_search" class="form-control">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success" data-ng-click="toggleOrder()">
+      <span data-ng-hide="order_reverse">↑ 오름차순</span>
+      <span data-ng-show="order_reverse">↓ 내림차순</span>
+    </button>
+  </div>
+  <ul class="onepiece-member-list">
+    <li
+      class="onepiece-member col-xs-12 col-sm-6 col-md-4 col-lg-3"
+      data-ng-repeat="member in onepieceMembers | filter:member_search | orderBy:order:order_reverse">
+      <img data-ng-src="images/{{member.image}}_tm.jpg" alt="{{member.name}}">
+      <h4 class="member-nickname" data-ng-bind="member.nickname"></h4>
+      <h3 class="member-name">{{member.name}}</h3>
+      <p class="member-bio">{{member.bio}}</p>
+    </li>
+  </ul>
+</div>
+<!--// 리스트 영역 -->
+
+
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="js/app.bundle.js"></script>
+<!-- endinject -->
+</body>
+</html>

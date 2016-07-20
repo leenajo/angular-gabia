@@ -1,0 +1,28 @@
+{
+  "name": "demo-gulp-automate-building-tool",
+  "description": "GulpJS를 활용하여 업무 자동화 프로그래밍.",
+  "directory": "./src/bower_components",
+  "main": "",
+  "authors": [
+    "yamoo9 <yamoo9@naver.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "gulp",
+    "업무",
+    "자동화"
+  ],
+  "homepage": "https://github.com/yamoo9/front-end-angular-camp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "angular-aria": "^1.5.5"
+  }
+}
